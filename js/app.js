@@ -14,19 +14,21 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     let button1 = document.createElement("div");
     let pasiekaP = document.createElement("p");
-    pasiekaP.innerHTML =  " &nbsp;tak&nbsp;";
+    pasiekaP.innerHTML =  " &nbsp;to&nbsp;";
     button1.appendChild(pasiekaP);
     button1.classList.add("button");
     button1.style.backgroundImage = "url(images/pasieka.jpg)";
     button1.addEventListener("click", (el) => {
-document.querySelector(".boxInBox").style.opacity = "0";
-      document.querySelectorAll(".boxInBox img").forEach(function (e) {
-        e.classList.add("hide");
-      });
+      let removeel = document.querySelectorAll(".box > div");
+      if (removeel.length > 0) {removeel[0].remove();};
+
+      box.appendChild(boxpasieka);
+
+
+      document.querySelector(".box > div").style.opacity = "0";
       setTimeout(function() {
-        document.querySelector(".pasieka").classList.remove("hide")
-          document.querySelector(".boxInBox").style.opacity = "1";
-      }, 200);
+          document.querySelector(".box > div").style.opacity = "1";
+      }, 0);
     });
 
     let button2 = document.createElement("div");
@@ -37,52 +39,47 @@ document.querySelector(".boxInBox").style.opacity = "0";
     button2.style.backgroundImage = "url(images/labolatory.jpg)";
     button2.style.backgroundPosition = "0px -40px";
     button2.addEventListener("click", (el) => {
-      document.querySelector(".boxInBox").style.opacity = "0";
-      document.querySelectorAll(".boxInBox img").forEach(function (e) {
-        e.classList.add("hide");
-      });
+      let removeel = document.querySelectorAll(".box > div");
+      if (removeel.length > 0) {removeel[0].remove();};
+      box.appendChild(boxlabolatory);
+      document.querySelector(".box > div").style.opacity = "0";
       setTimeout(function() {
-        document.querySelector(".labolatory").classList.remove("hide")
-          document.querySelector(".boxInBox").style.opacity = "1";
-      }, 200);
+          document.querySelector(".box > div").style.opacity = "1";
+      }, 0);
     });
 
     let button3 = document.createElement("div");
     let productsP = document.createElement("p");
-    productsP.innerHTML = "&nbsp; proszę &nbsp;";
+    productsP.innerHTML = "&nbsp; me &nbsp;";
     button3.appendChild(productsP);
     button3.classList.add("button");
     button3.style.backgroundImage = "url(images/products.jpg)";
     button3.style.backgroundPosition = "0px -40px";
     button3.addEventListener("click", (el) => {
-      document.querySelector(".boxInBox").style.opacity = "0";
-      document.querySelectorAll(".boxInBox img").forEach(function (e) {
-        e.classList.add("hide");
-      });
+      let removeel = document.querySelectorAll(".box > div");
+      if (removeel.length > 0) {removeel[0].remove();};
+      box.appendChild(boxproducts);
+      document.querySelector(".box > div").style.opacity = "0";
       setTimeout(function() {
-        document.querySelector(".products").classList.remove("hide")
-          document.querySelector(".boxInBox").style.opacity = "1";
-      }, 200);
+          document.querySelector(".box > div").style.opacity = "1";
+      }, 0);
     });
 
     let button4 = document.createElement("div");
     let contactP = document.createElement("p");
-    contactP.innerHTML = "&nbsp; Pana &nbsp;";
+    contactP.innerHTML = "&nbsp; nu &nbsp;";
     button4.appendChild(contactP);
     button4.classList.add("button");
     button4.style.backgroundImage = "url(images/contact.jpg)";
     button4.addEventListener("click", (el) => {
-      document.querySelector(".boxInBox").style.opacity = "0";
-      document.querySelectorAll(".boxInBox img").forEach(function (e) {
-        e.classList.add("hide");
-      });
+      let removeel = document.querySelectorAll(".box > div");
+      if (removeel.length > 0) {removeel[0].remove();};
+      box.appendChild(boxcontact);
+      document.querySelector(".box > div").style.opacity = "0";
       setTimeout(function() {
-        document.querySelector(".contact").classList.remove("hide")
-          document.querySelector(".boxInBox").style.opacity = "1";
-      }, 200);
+          document.querySelector(".box > div").style.opacity = "1";
+      }, 0);
     });
-
-
 
     container.appendChild(logo);
     container.appendChild(menu);
@@ -112,42 +109,31 @@ document.querySelector(".boxInBox").style.opacity = "0";
     //box
         let box = document.createElement("div");
         box.classList.add("box");
-        box.style.backgroundColor = "orange";
+        box.style.backgroundColor = "#FFFF99";
         container.appendChild(box);
-        let boxInBox = document.createElement("div");
-        boxInBox.classList.add("boxInBox");
-        box.appendChild(boxInBox);
 
-        let pasieka = document.createElement("img");
-        pasieka.src = "images/pasieka.jpg";
-        pasieka.classList.add("hide");
-        pasieka.classList.add("pasieka");
-        boxInBox.appendChild(pasieka);
 
-        let labolatory = document.createElement("img");
-        labolatory.src = "images/labolatory.jpg";
-        labolatory.classList.add("hide");
-        labolatory.classList.add("labolatory");
-        boxInBox.appendChild(labolatory);
+    //pasieka
+        let boxpasieka = document.createElement("div");
+        boxpasieka.style.backgroundImage = "url(images/pasieka.jpg)";
+        boxpasieka.style.height = "300px";
+        box.appendChild(boxpasieka);
 
-        let productsBox = document.createElement("div");
-        let products = document.createElement("img");
-        let products2 = document.createElement("div");
-        products2.backgroundColor = "green";
-        products2.style.width = "100px";
-        products2.style.height = "100px";
-        products.src = "images/products.jpg";
-        products.classList.add("hide");
-        products.classList.add("products");
-        productsBox.appendChild(products);
-        productsBox.appendChild(products2);
-        boxInBox.appendChild(productsBox);
+    //labolatory
+        let boxlabolatory = document.createElement("div");
+        boxlabolatory.style.backgroundImage = "url(images/labolatory.jpg)";
+        boxlabolatory.style.height = "300px";
 
-        let contact = document.createElement("img");
-        contact.src = "images/contact.jpg";
-        contact.classList.add("hide");
-        contact.classList.add("contact");
-        boxInBox.appendChild(contact);
+    //products
+        let boxproducts = document.createElement("div");
+        boxproducts.style.backgroundImage = "url(images/products.jpg)";
+        boxproducts.style.height = "300px";
+
+    //contact
+        let boxcontact = document.createElement("div");
+        boxcontact.style.backgroundImage = "url(images/contact.jpg)";
+        boxcontact.style.height = "300px";
+
 
 
 });
